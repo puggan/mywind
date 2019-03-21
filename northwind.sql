@@ -1,10 +1,3 @@
-SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
-SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
-SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
-
--- -----------------------------------------------------
--- Table `customers`
--- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `customers` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `company` VARCHAR(50) NULL DEFAULT NULL,
@@ -34,10 +27,6 @@ CREATE TABLE IF NOT EXISTS `customers` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
-
--- -----------------------------------------------------
--- Table `employees`
--- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `employees` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `company` VARCHAR(50) NULL DEFAULT NULL,
@@ -67,10 +56,6 @@ CREATE TABLE IF NOT EXISTS `employees` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
-
--- -----------------------------------------------------
--- Table `privileges`
--- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `privileges` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `privilege_name` VARCHAR(50) NULL DEFAULT NULL,
@@ -78,10 +63,6 @@ CREATE TABLE IF NOT EXISTS `privileges` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
-
--- -----------------------------------------------------
--- Table `employee_privileges`
--- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `employee_privileges` (
   `employee_id` INT(11) NOT NULL,
   `privilege_id` INT(11) NOT NULL,
@@ -102,10 +83,6 @@ CREATE TABLE IF NOT EXISTS `employee_privileges` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
-
--- -----------------------------------------------------
--- Table `inventory_transaction_types`
--- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `inventory_transaction_types` (
   `id` TINYINT(4) NOT NULL,
   `type_name` VARCHAR(50) NOT NULL,
@@ -113,10 +90,6 @@ CREATE TABLE IF NOT EXISTS `inventory_transaction_types` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
-
--- -----------------------------------------------------
--- Table `shippers`
--- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `shippers` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `company` VARCHAR(50) NULL DEFAULT NULL,
@@ -146,10 +119,6 @@ CREATE TABLE IF NOT EXISTS `shippers` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
-
--- -----------------------------------------------------
--- Table `orders_tax_status`
--- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `orders_tax_status` (
   `id` TINYINT(4) NOT NULL,
   `tax_status_name` VARCHAR(50) NOT NULL,
@@ -157,10 +126,6 @@ CREATE TABLE IF NOT EXISTS `orders_tax_status` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
-
--- -----------------------------------------------------
--- Table `orders_status`
--- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `orders_status` (
   `id` TINYINT(4) NOT NULL,
   `status_name` VARCHAR(50) NOT NULL,
@@ -168,10 +133,6 @@ CREATE TABLE IF NOT EXISTS `orders_status` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
-
--- -----------------------------------------------------
--- Table `orders`
--- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `orders` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `employee_id` INT(11) NULL DEFAULT NULL,
@@ -233,10 +194,6 @@ CREATE TABLE IF NOT EXISTS `orders` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
-
--- -----------------------------------------------------
--- Table `products`
--- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `products` (
   `supplier_ids` LONGTEXT NULL DEFAULT NULL,
   `id` INT(11) NOT NULL AUTO_INCREMENT,
@@ -257,10 +214,6 @@ CREATE TABLE IF NOT EXISTS `products` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
-
--- -----------------------------------------------------
--- Table `purchase_order_status`
--- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `purchase_order_status` (
   `id` INT(11) NOT NULL,
   `status` VARCHAR(50) NULL DEFAULT NULL,
@@ -268,10 +221,6 @@ CREATE TABLE IF NOT EXISTS `purchase_order_status` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
-
--- -----------------------------------------------------
--- Table `suppliers`
--- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `suppliers` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `company` VARCHAR(50) NULL DEFAULT NULL,
@@ -301,10 +250,6 @@ CREATE TABLE IF NOT EXISTS `suppliers` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
-
--- -----------------------------------------------------
--- Table `purchase_orders`
--- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `purchase_orders` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `supplier_id` INT(11) NULL DEFAULT NULL,
@@ -347,10 +292,6 @@ CREATE TABLE IF NOT EXISTS `purchase_orders` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
-
--- -----------------------------------------------------
--- Table `inventory_transactions`
--- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `inventory_transactions` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `transaction_type` TINYINT(4) NOT NULL,
@@ -392,10 +333,6 @@ CREATE TABLE IF NOT EXISTS `inventory_transactions` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
-
--- -----------------------------------------------------
--- Table `invoices`
--- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `invoices` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `order_id` INT(11) NULL DEFAULT NULL,
@@ -416,10 +353,6 @@ CREATE TABLE IF NOT EXISTS `invoices` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
-
--- -----------------------------------------------------
--- Table `order_details_status`
--- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `order_details_status` (
   `id` INT(11) NOT NULL,
   `status_name` VARCHAR(50) NOT NULL,
@@ -427,10 +360,6 @@ CREATE TABLE IF NOT EXISTS `order_details_status` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
-
--- -----------------------------------------------------
--- Table `order_details`
--- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `order_details` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `order_id` INT(11) NOT NULL,
@@ -472,10 +401,6 @@ CREATE TABLE IF NOT EXISTS `order_details` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
-
--- -----------------------------------------------------
--- Table `purchase_order_details`
--- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `purchase_order_details` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `purchase_order_id` INT(11) NOT NULL,
@@ -511,10 +436,6 @@ CREATE TABLE IF NOT EXISTS `purchase_order_details` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
-
--- -----------------------------------------------------
--- Table `sales_reports`
--- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `sales_reports` (
   `group_by` VARCHAR(50) NOT NULL,
   `display` VARCHAR(50) NULL DEFAULT NULL,
@@ -525,18 +446,9 @@ CREATE TABLE IF NOT EXISTS `sales_reports` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
-
--- -----------------------------------------------------
--- Table `strings`
--- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `strings` (
   `string_id` INT(11) NOT NULL AUTO_INCREMENT,
   `string_data` VARCHAR(255) NULL DEFAULT NULL,
   PRIMARY KEY (`string_id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
-
-
-SET SQL_MODE=@OLD_SQL_MODE;
-SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
-SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
